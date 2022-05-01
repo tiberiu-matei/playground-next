@@ -10,12 +10,12 @@ jobs:
               with:
                   node-version: 16.x
             - run: npm ci
-            - run: npm run build
             - run: npm run lint
+            - run: npm run export
             - name: Zip output
               uses: papeloto/action-zip@v1
               with:
-                  files: .next/
+                  files: out/
                   dest: playground-next.zip
             - name: Upload
               uses: actions/upload-artifact@v2
