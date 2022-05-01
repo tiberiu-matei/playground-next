@@ -15,7 +15,7 @@ jobs:
             - name: Zip output
               uses: papeloto/action-zip@v1
               with:
-                  files: build/
+                  files: .next/
                   dest: playground-next.zip
             - name: Upload
               uses: actions/upload-artifact@v2
@@ -38,7 +38,7 @@ jobs:
                   username: ${{ secrets.PROD_USERNAME }}
                   key: ${{ secrets.PROD_KEY }}
                   source: 'playground-next.zip'
-                  target: '/home/playground-next'
+                  target: '/home/playground'
             - name: Upgrade
               uses: appleboy/ssh-action@master
               with:
